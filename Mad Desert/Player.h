@@ -14,7 +14,7 @@ public:
 
 	Player();
 	void playerMove();
-	void playerAim();
+	void playerGun();
 	void onUpdate();
 	
 };

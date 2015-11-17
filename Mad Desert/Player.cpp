@@ -54,14 +54,14 @@ void Player::playerMove()
 }
 
 
-void Player::playerAim(){
+void Player::playerGun(){
 	sfw::drawTexture(getTexture(textureName2), sfw::getMouseX(), sfw::getMouseY(), sfw::getTextureWidth(getTexture(textureName2)) / 14, sfw::getTextureHeight(getTexture(textureName2)) / 14);
 }
 
 void Player::onUpdate()
 {
 	playerMove();
-	playerAim();
+	playerGun();
 }
 
 
