@@ -5,20 +5,23 @@
 
 struct vec2 {
 
-	int x, y;
+	float x, y;
 };
 
 class GameObject{
 public:
 	vec2 pos;
 	vec2 dim;
-	int angle;
+	float angle;
 	int health;
 	int speed;
 	std::string textureName;
+	std::string textureName2;
+	float animTimer;
+	unsigned currentFrame;
 
-	virtual void draw()
-	{
-		sfw::drawTexture(getTexture(textureName), pos.x, pos.y, dim.x, dim.y, angle, true);
-	}
+	virtual void update();
+	virtual void onUpdate() {}
+
+	virtual void draw(vec2 cam);
 };

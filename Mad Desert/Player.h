@@ -4,10 +4,17 @@
 #include "Animations.h"
 
 class Player : public GameObject {
-private:
-	void movePlayer();
 public:
+	float angularSpeed;
+
+	float vel;
+	float acc;
+	float maxVel;
+	float dragVel;
 
 	Player();
+	void playerMove();
+	void playerAim();
+	void onUpdate();
 	
 };
