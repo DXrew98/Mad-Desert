@@ -1,4 +1,6 @@
 #include "Bullet.h"
+#include "GameState.h"
+
 
 Bullet::Bullet(float a_x, float a_y, float dx, float dy, float lifetime){
 
@@ -9,6 +11,8 @@ Bullet::Bullet(float a_x, float a_y, float dx, float dy, float lifetime){
 		vely = dy;
 
 		lifespan = lifetime;
+
+		BulletTexture = "Bullet";
 }
 
 void Bullet::update()
@@ -21,4 +25,5 @@ void Bullet::update()
 	pos.y += vely * sfw::getDeltaTime();
 }
 
-void Bullet::draw() { sfw::drawLine(pos.x, pos.y, dim.x, dim.y + 20, YELLOW); }
+void Bullet::draw(vec2 cam) {
+	sfw::drawTexture(getTexture(BulletTexture), cam.x - pos.x, cam.y - pos.y, sfw::getTextureWidth(getTexture(BulletTexture)) / 3, sfw::getTextureHeight(getTexture(BulletTexture)) / 3); }

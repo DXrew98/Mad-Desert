@@ -17,12 +17,12 @@ Player::Player() {
 	angularSpeed = 60;
 	speed		 = 120;
 	
-	dragVel		 = 10;
+	dragVel		 = 20;
 	maxVel		 = 320;
 
-	bulletSpeed = 100;
-	rateOfFire = 0.1f;
-	firedelay = 0.f;
+	bulletSpeed = 10;
+	rateOfFire = .5f;
+	firedelay = .0f;
 }
 
 void Player::playerMove()
@@ -62,9 +62,26 @@ void Player::playerMove()
 
 void Player::playerGun(){
 	firedelay -= sfw::getDeltaTime();
-	if (sfw::getMouseButton('0') && firedelay < 0) {
-		firedelay = rateOfFire;
-		gs()->makeBullets(pos.x, pos.y, 0, 300, 4.f);
+	if (sfw::getMouseButton(0) && firedelay < 0) {
+ 		firedelay = rateOfFire;
+
+		// direction from the truck to the mouse position
+		// cam = { Max.pos.x + 400, Max.pos.y + 300 };
+		//
+		
+		float dirx = 400 - sfw::getMouseX();
+		float diry = 300 - sfw::getMouseY();
+
+		float distance = sqrt(dirx*dirx + diry*diry);		
+
+		float velx = dirx/distance * 1000;
+		float vely = diry/distance * 1000;
+
+		//float angle = atan2f(diry, dirx);
+		//velx = cos(angle) * 1000;
+		//vely = sin(angle) * 1000;
+
+		gs()->makeBullets(pos.x, pos.y, velx, vely, 0.5f);
 	}
 }
 
