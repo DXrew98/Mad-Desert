@@ -2,21 +2,27 @@
 #include "GameObject.h"
 #include "Animations.h"
 #include "sfwdraw.h"
+#include"GameState.h"
 
 Player::Player() {
 
-	textureName = "PlayerTruck";
+	textureName =  "PlayerTruck";
 	textureName2 = "PlayerAim";
+
 	pos			 = { 0,0 };
 	vel			 = 0;
 	acc			 = 0;
 	dim			 = { 75, 75 };
 	angle		 = 90;
 	angularSpeed = 60;
-	speed		 = 100;
+	speed		 = 120;
 	
-	dragVel		 = 20;
-	maxVel		 = 250;
+	dragVel		 = 10;
+	maxVel		 = 320;
+
+	bulletSpeed = 100;
+	rateOfFire = 0.1f;
+	firedelay = 0.f;
 }
 
 void Player::playerMove()
@@ -55,7 +61,11 @@ void Player::playerMove()
 
 
 void Player::playerGun(){
-	sfw::drawTexture(getTexture(textureName2), sfw::getMouseX(), sfw::getMouseY(), sfw::getTextureWidth(getTexture(textureName2)) / 14, sfw::getTextureHeight(getTexture(textureName2)) / 14);
+	firedelay -= sfw::getDeltaTime();
+	if (sfw::getMouseButton('0') && firedelay < 0) {
+		firedelay = rateOfFire;
+		gs()->makeBullets(pos.x, pos.y, 0, 300, 4.f);
+	}
 }
 
 void Player::onUpdate()

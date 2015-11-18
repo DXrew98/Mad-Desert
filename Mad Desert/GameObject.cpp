@@ -1,5 +1,5 @@
 #include "GameObject.h"
-#include "Player.h"
+
 
 
 
@@ -8,9 +8,16 @@ void GameObject::draw(vec2 cam) {
 	
 }
 
+GameState *& GameObject::gs()
+{
+	static GameState *game;
+	return game;
+}
+
 void GameObject::update() {
 	animTimer += sfw::getDeltaTime();
 	currentFrame;
 
 	onUpdate();
+	
 }
