@@ -14,6 +14,7 @@ int main() {
 	loadTexture("PlayerAim", "./Art_Assets/clover.png", 1, 1);
 	loadTexture("GameMap", "./Art_Assets/GameMap.png", 1, 1);
 	loadTexture("Bullet", "./Art_Assets/Bullet1.png", 1, 1);
+	loadTexture("EnemyS", "./Art_Assets/Audi.png", 1, 1);
 
 	GameState game;
 	

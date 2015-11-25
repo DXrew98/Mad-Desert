@@ -1,7 +1,5 @@
 #pragma once
-#include "sfwdraw.h"
 #include "GameObject.h"
-#include "Animations.h"
 
 class GameState;
 

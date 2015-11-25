@@ -1,5 +1,6 @@
 #pragma once
 #include "Player.h"
+#include "EnemySpeedy.h"
 #include "GameObject.h"
 #include "Animations.h"
 #include "sfwdraw.h"
@@ -15,6 +16,7 @@ class GameState {
 	vec2 cam;
 	std::string textureMap;
 
+	EnemySpeedy ESOne;
 	
 
 public:

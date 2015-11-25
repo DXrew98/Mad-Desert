@@ -3,10 +3,14 @@
 
 
 
-void GameObject::draw(vec2 cam) {
-	sfw::drawTexture(getTexture(textureName), cam.x - pos.x, cam.y - pos.y, dim.x, dim.y, angle-90, true);
-	
+void GameObject::draw(vec2 cam, int drawAngle) {
+	sfw::drawTexture(getTexture(textureName), cam.x - pos.x, cam.y - pos.y, dim.x, dim.y, angle - drawAngle, true);	
 }
+
+void GameObject::draw2(vec2 cam, int drawAngle) {
+	sfw::drawTexture(getTexture(textureName), pos.x - cam.x, pos.y - cam.y, 40, 40, angle - drawAngle, true);
+}
+
 
 GameState *& GameObject::gs()
 {
@@ -15,9 +19,10 @@ GameState *& GameObject::gs()
 }
 
 void GameObject::update() {
-	animTimer += sfw::getDeltaTime();
-	currentFrame;
+	/*animTimer += sfw::getDeltaTime();
+	currentFrame;*/
 
 	onUpdate();
+	
 	
 }

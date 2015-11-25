@@ -9,7 +9,7 @@ Player::Player() {
 	textureName =  "PlayerTruck";
 	textureName2 = "PlayerAim";
 
-	pos			 = { 0,0 };
+	pos			 = { -750,-750 };
 	vel			 = 0;
 	acc			 = 0;
 	dim			 = { 75, 75 };
@@ -21,7 +21,7 @@ Player::Player() {
 	maxVel		 = 320;
 
 	bulletSpeed = 10;
-	rateOfFire = .5f;
+	rateOfFire = .2f;
 	firedelay = .0f;
 }
 
