@@ -15,11 +15,14 @@ public:
 	float acc;
 	float maxVel;
 	float dragVel;
+	//float maxAcc;
+	//float angularSpeedMax;
+	
 
 	bool inCollision;
 
 	EnemySpeedy();
-	void playerTracking(float posX, float posY);
+	/*void playerTracking(float posX, float posY);*/
 	void checkCollision();
 	void onCollision();
 	void enUpdate();

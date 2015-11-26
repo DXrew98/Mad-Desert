@@ -12,6 +12,8 @@ class GameState {
 
 	Player Max;
 	std::vector<Bullet> bullets;
+	std::vector<EnemySpeedy> Enemy_N_S;
+	std::vector<EnemySpeedy> Enemy_E_W;
 
 	vec2 cam;
 	std::string textureMap;
@@ -27,6 +29,7 @@ public:
 
 	void makeBullets(float x, float y, float dx, float dy, float lifespan);
 	void bulletUpdate();
+	void Enemy_E_W_Update();
 };
 
 

@@ -11,6 +11,10 @@ void GameObject::draw2(vec2 cam, int drawAngle) {
 	sfw::drawTexture(getTexture(textureName), pos.x - cam.x, pos.y - cam.y, 40, 40, angle - drawAngle, true);
 }
 
+void GameObject::onCollision(GameObject & go, float distance)
+{
+}
+
 
 GameState *& GameObject::gs()
 {

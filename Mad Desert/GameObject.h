@@ -37,4 +37,6 @@ public:
 
 	virtual void draw(vec2 cam, int drawAngle);
 	virtual void draw2(vec2 cam, int drawAngle);
+
+	virtual void onCollision(GameObject &go, float distance);
 };

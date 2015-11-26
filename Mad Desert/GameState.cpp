@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "EnemySpeedy.h"
+#include "collisionsTest.h"
 
 GameState::GameState()
 {
@@ -31,12 +32,15 @@ void GameState::bulletUpdate()
 		else nBulletsActive++;
 }
 
+
+
 void GameState::update()
 {
 	if (Max.isActive) Max.update();
 	cam = { Max.pos.x + 400, Max.pos.y + 300 };
 	bulletUpdate();
-	if (ESOne.isActive) ESOne.playerTracking(Max.pos.x, Max.pos.y);
+	if (ESOne.isActive) ESOne.enUpdate();
+	doCollision(Max, ESOne);
 	
 }
 
