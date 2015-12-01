@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "Animations.h"
+#include "Menu.h"
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,15 +20,22 @@ int main() {
 	loadTexture("GameMap", "./Art_Assets/GameMap.png", 1, 1);
 	loadTexture("Bullet", "./Art_Assets/Bullet1.png", 1, 1);
 	loadTexture("EnemyS", "./Art_Assets/Audi.png", 1, 1);
+	loadTexture("Splash", "./Art_Assets/SPLASH.png", 1, 1);
+	loadTexture("Exit", "./Art_Assets/EXIT.png", 1, 1);
 
 	GameState game;
+	STATE current = SPLASH;
 	
 	srand(time(NULL));
 
 	while (sfw::stepContext()) {
-		game.update();
-		game.draw();
-		std::cout << "You've been haaacked Boiiiiii" << std::endl;
+		switch (current) {
+		case SPLASH: splash(); 
+		case MAIN: current = mainMenu(); break;
+		case PLAY: game.play();
+		case GAME: current = game.update(); break;
+		case EXIT: return 0;
+		}
 	}
 
 	sfw::termContext();

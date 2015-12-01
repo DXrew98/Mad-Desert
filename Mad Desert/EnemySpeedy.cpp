@@ -150,5 +150,5 @@ void EnemySpeedy::enUpdate()
 }
 
 void EnemySpeedy::draw2(vec2 cam, int drawAngle) {
-	sfw::drawTexture(getTexture(carTexture), pos.x - cam.x, pos.y - cam.y, 40, 40, angle - drawAngle, true);
+	sfw::drawTexture(getTexture(carTexture), pos.x - cam.x, pos.y - cam.y, 45, 45, angle - drawAngle, true);
 }

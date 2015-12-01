@@ -78,7 +78,12 @@ float GameState::randY()
 
 
 
-void GameState::update()
+void GameState::play()
+{
+
+}
+
+STATE GameState::update()
 {
 	if (Max.isActive) Max.update();
 	cam = { Max.pos.x - 400, Max.pos.y - 300 };
@@ -112,7 +117,11 @@ void GameState::update()
 			doCollision(bullets[i], enemyS[j]);
 		}
 	}
-	
+	draw();
+
+	if (Max.isActive == false) { return MAIN; }
+
+	return GAME;
 }
 
 void GameState::draw()

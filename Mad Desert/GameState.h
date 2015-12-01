@@ -7,6 +7,7 @@
 #include "Bullet.h"
 #include <string>
 #include <vector>
+#include "Menu.h"
 
 class GameState {
 
@@ -24,7 +25,8 @@ class GameState {
 public:
 	GameState();
 
-	void update();
+	void play();
+	STATE update();
 	void draw();
 
 	void makeBullets(float x, float y, float dx, float dy, float lifespan);

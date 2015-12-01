@@ -3,6 +3,7 @@
 #include "Animations.h"
 #include "sfwdraw.h"
 #include"GameState.h"
+#include "Menu.h"
 
 Player::Player() {
 
@@ -97,7 +98,7 @@ void Player::onUpdate()
 
 void Player::onCollision(GameObject & go, float distance)
 {
-
+	isActive = false;
 }
 
 
