@@ -18,6 +18,7 @@ public:
 
 	GameObject() : isActive(true) {}
 
+	float radius;
 	vec2 pos;
 	vec2 dim;
 
@@ -36,7 +37,7 @@ public:
 	virtual void onUpdate() {}
 
 	virtual void draw(vec2 cam, int drawAngle);
-	virtual void draw2(vec2 cam, int drawAngle);
+	//virtual void draw2(vec2 cam, int drawAngle);
 
 	virtual void onCollision(GameObject &go, float distance);
 };

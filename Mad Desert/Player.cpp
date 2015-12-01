@@ -9,7 +9,7 @@ Player::Player() {
 	textureName =  "PlayerTruck";
 	textureName2 = "PlayerAim";
 
-	pos			 = { -750,-750 };
+	pos			 = { 0,0 };
 	vel			 = 0;
 	acc			 = 0;
 	dim			 = { 75, 75 };
@@ -23,6 +23,8 @@ Player::Player() {
 	bulletSpeed = 10;
 	rateOfFire = .2f;
 	firedelay = .0f;
+
+	radius = 10;
 }
 
 void Player::playerMove()
@@ -81,7 +83,9 @@ void Player::playerGun(){
 		//velx = cos(angle) * 1000;
 		//vely = sin(angle) * 1000;
 
-		gs()->makeBullets(pos.x, pos.y, velx, vely, 0.5f);
+		//vec2 bvel = { cosf(angle) * vel, sinf(angle) * vel};
+
+		gs()->makeBullets(pos.x, pos.y,velx, vely, 0.5f);
 	}
 }
 
@@ -89,6 +93,11 @@ void Player::onUpdate()
 {
 	playerMove();
 	playerGun();
+}
+
+void Player::onCollision(GameObject & go, float distance)
+{
+
 }
 
 

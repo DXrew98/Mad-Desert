@@ -3,6 +3,10 @@
 #include "GameObject.h"
 #include "Player.h"
 #include "Animations.h"
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 
 
@@ -18,9 +22,12 @@ int main() {
 
 	GameState game;
 	
+	srand(time(NULL));
+
 	while (sfw::stepContext()) {
 		game.update();
 		game.draw();
+		std::cout << "You've been haaacked Boiiiiii" << std::endl;
 	}
 
 	sfw::termContext();

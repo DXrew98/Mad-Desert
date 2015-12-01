@@ -21,4 +21,5 @@ public:
 	void playerGun();
 	void onUpdate();
 	
+	void onCollision(GameObject &go, float distance);
 };
